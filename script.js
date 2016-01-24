@@ -29,6 +29,7 @@ describe('Protractor Experiments', function() {
   it('test', function() {
     let createdPage = firstB.getP(Page);
     console.log('got a page', createdPage);
+    createdPage.get();
 
   });
 
