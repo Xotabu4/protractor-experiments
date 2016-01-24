@@ -1,30 +1,35 @@
-describe('Protractor Demo App', function() {
+"use strict";
 
-  it('should have a title', function() {
-    first = browser;
-    second = browser.forkNewDriverInstance();
+class Page {
 
+  static firstVersion () {
+    return UserOnePage;
+  }
 
-    //browser.get('http://juliemr.github.io/protractor-demo/');
+  static secondVersion () {
+    return UserTwoPage;
+  }
 
-    var AngularHomepage = function(browser) {
+}
 
-      this.get = function() {
-        browser.get('http://www.angularjs.org');
-      };
+class UserOnePage extends Page{
+    get() {
+        console.log('GOT FIRST!')
+    }
+}
 
-    };
+class UserTwoPage extends Page{
+  get() {
+      console.log('GOT SECOND!')
+  }
+}
 
+describe('Protractor Experiments', function() {
 
-    Page = function (page) {
-      //console.log(this);
-      return new page(this);
-    };
+  it('test', function() {
+    let createdPage = firstB.getP(Page);
+    console.log('got a page', createdPage);
 
-
-    first.Page = Page
-    second.Page = Page
-    second.Page(AngularHomepage).get();
   });
 
 });
