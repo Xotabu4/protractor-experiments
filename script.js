@@ -1,40 +1,14 @@
 "use strict";
-var ElementFinder = require('protractor/lib/element.js').ElementFinder;
-var ElementArrayFinder = require('protractor/lib/element.js').ElementArrayFinder;
-
-class CheckBox extends ElementFinder {
-    constructor(loc) {
-      var getWebElements = function () {
-        var ptor = browser;
-        var locator = loc;
-        return ptor.waitForAngular().then(function() {
-          if (locator.findElementsOverride) {
-            return locator.findElementsOverride(ptor.driver, null, ptor.rootEl);
-          } else {
-            return ptor.driver.findElements(locator);
-          }
-        });
-      }
-      var ArrayFinderFull = new ElementArrayFinder(browser, getWebElements, loc);
-      super(browser, ArrayFinderFull);
-    }
-
-    check() {
-        return this.isSelected().then(selected => selected? this.click() : null)
-    }
-}
 
 describe('Protractor Experiments', function() {
   it('testing different pageobjects for different browsers', function() {
     var getPage = function(page) {
-        console.log('first?', this.first);
-        console.log('second?', this.second);
         if (this.first) {
-            let firstPage = page.firstVersion(this);
+            let firstPage = page.firstVersion;
             return new firstPage();
         }
         if (this.second) {
-            let secondPage = page.secondVersion(this);
+            let secondPage = page.secondVersion;
             return new secondPage();
         }
     }
@@ -48,23 +22,25 @@ describe('Protractor Experiments', function() {
     firstB.getPage = getPage;
     secondB.getPage = getPage;
     var Page = require('./src/pages.js');
-    let createdPage = firstB.getPage(Page);
-    console.log('got a page', createdPage);
-    createdPage.get();
+    let numberone = firstB.getPage(Page).doAction();
+
+    let numbertwo = secondB.getPage(Page).doAction();
+    expect(numberone).toBe(1);
+    expect(numbertwo).toBe(2);
 
     secondB.close();
   });
 
   it('extending base ElementFinder', function () {
-    browser.get('https://angularjs.org/');
+    browser.get('http://www.protractortest.org/testapp/ng1/#/form');
 
     // so here we are finding element by css selector
-    let todoApp = $('div[app-run="todo.html"]'); //todo app container
 
-    let checkboxwrapped = new CheckBox(by.css('input[type="checkbox"]'));
+    let CheckBox = require('./src/checkboxElement.js');
+    let checkboxwrapped = new CheckBox(by.css('#checkboxes input[ng-model="show"]'));
 
     checkboxwrapped.check().then(function() {
-        expect($('input[type="checkbox"]').isSelected()).toBe(false);
+        expect($('#checkboxes input[ng-model="show"]').isSelected()).toBe(false);
     });
   });
 });

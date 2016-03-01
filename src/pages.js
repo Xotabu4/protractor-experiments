@@ -1,22 +1,22 @@
 "use strict";
 class Page {
-  static firstVersion () {
+  static get firstVersion () {
     return UserOnePage;
   }
-  static secondVersion () {
+  static get secondVersion () {
     return UserTwoPage;
   }
 }
 
 class UserOnePage extends Page{
-    get() {
-        console.log('GOT FIRST!')
+    doAction() {
+        return 1;
     }
 }
 
 class UserTwoPage extends Page{
-    get() {
-        console.log('GOT SECOND!')
+    doAction() {
+        return 2;
     }
 }
 
