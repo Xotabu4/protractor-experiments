@@ -4,7 +4,8 @@
   "description": "Some playing with protractor possibilities",
   "main": "config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "node ./node_modules/protractor/bin/webdriver-manager update",
+    "test": "node ./node_modules/protractor/bin/protractor config.js"
   },
   "repository": {
     "type": "git",
