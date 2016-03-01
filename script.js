@@ -28,7 +28,6 @@ describe('Protractor Experiments', function() {
     expect(numberone).toBe(1);
     expect(numbertwo).toBe(2);
 
-    secondB.close();
   });
 
   it('extending base ElementFinder', function () {
