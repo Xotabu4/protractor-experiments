@@ -14,7 +14,7 @@ class CheckBox extends ElementFinder {
             return ptor.driver.findElements(locator);
           }
         });
-      }
+      };
       var ArrayFinderFull = new ElementArrayFinder(browser, getWebElements, loc);
       super(browser, ArrayFinderFull);
     }

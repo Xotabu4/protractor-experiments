@@ -2,12 +2,12 @@
 exports.config = {
   directConnect: true,
 
-  framework: 'jasmine',
+  framework: 'jasmine2',
     specs: ['script.js'],
   capabilities: {
-    'browserName': 'firefox'
+    'browserName': 'chrome'
   },
 
   onPrepare: function() {
   }
-}
+};
