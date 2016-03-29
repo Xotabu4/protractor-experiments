@@ -1,27 +1,16 @@
 "use strict";
 
-describe('Protractor Experiments', function () {
+xdescribe('Protractor Experiments', function () {
     beforeEach(function () {
-        var customMatchers = require('./src/customMatchers.js');
+
+        var customMatchers = require('jasmine-protractor-matchers');
         jasmine.addMatchers(customMatchers);
     });
 
-    xit('creating custom jasmine matcher function with wait', function () {
-        browser.get('http://www.protractortest.org/testapp/ng1/#/form');
-        
-        let nonexist = $('nonexist');
-        let exist = $('body');
-        //expect(nonexist).toDisappear();
-        //expect(exist).toDisappear();
-        //Works if wrap element to promise.
-        //expect(protractor.promise.fulfilled(nonexist)).toAppear();
-        //expect(protractor.promise.fulfilled(nonexist)).toAppear(1000, 'test message');
-        //expect(protractor.promise.fulfilled(exist)).toAppear();
-    });
     it('creating custom jasmine matcher function with wait', function () {
         browser.get('http://www.protractortest.org/testapp/ng1/#/form');
         expect($('body')).toAppear();
-        expect(expect($('nonexist')).toAppear()).toThrow();
+        expect($('bodasdy')).toDisappear();
     });
 
     it('testing different pageobjects for different browsers', function () {
