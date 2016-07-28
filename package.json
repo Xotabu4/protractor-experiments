@@ -21,9 +21,8 @@
   },
   "homepage": "https://github.com/Xotabu4/Protractor-Experiments#readme",
   "devDependencies": {
-    "protractor": "^3.1.1",
-    "jasmine-protractor-matchers": "^0.1.0",
-    "jasmine2-reporter": "*",
-    "jasmine": "*"
+    "protractor": "^4.0.0",
+    "jasmine-protractor-matchers": "^0.2.0",
+    "typescript": "^2.0.0"
   }
 }
