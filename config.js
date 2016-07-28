@@ -5,9 +5,10 @@ exports.config = {
   framework: 'jasmine2',
     specs: ['script.js'],
   capabilities: {
-    'browserName': 'firefox'
+    'browserName': 'chrome'
   },
 
   onPrepare: function() {
+
   }
 };
