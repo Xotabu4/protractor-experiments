@@ -1,9 +1,13 @@
 "use strict";
+
+
 exports.config = {
   directConnect: true,
 
+  baseUrl: 'http://www.protractortest.org/testapp/ng1/#/form',
+
   framework: 'jasmine2',
-    specs: ['script.js'],
+    specs: ['specs/spec.ts'],
   capabilities: {
     'browserName': 'chrome'
   },
@@ -12,3 +16,4 @@ exports.config = {
 
   }
 };
+console.log('DONE!')

@@ -1,4 +1,4 @@
-"use strict";
+import {browser, $, by} from 'protractor'
 
 xdescribe('Protractor Experiments', function () {
     beforeEach(function () {
@@ -9,8 +9,8 @@ xdescribe('Protractor Experiments', function () {
 
     it('creating custom jasmine matcher function with wait', function () {
         browser.get('http://www.protractortest.org/testapp/ng1/#/form');
-        expect($('body')).toAppear();
-        expect($('bodasdy')).toDisappear();
+        (expect($('body')) as any).toAppear();
+        (expect($('bodasdy')) as any).toDisappear();
     });
 
     it('testing different pageobjects for different browsers', function () {
@@ -24,8 +24,8 @@ xdescribe('Protractor Experiments', function () {
                 return new secondPage();
             }
         }
-        var firstB = browser;
-        var secondB = browser.forkNewDriverInstance();
+        var firstB:any = browser;
+        var secondB:any = browser.forkNewDriverInstance();
         firstB.first = true;
         secondB.first = false;
         firstB.second = false;
