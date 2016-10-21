@@ -5,7 +5,8 @@
   "main": "config.js",
   "scripts": {
     "postinstall": "node ./node_modules/protractor/bin/webdriver-manager update",
-    "test": "node ./node_modules/protractor/bin/protractor config.js"
+    "tsc": "tsc",
+    "test": "ts-node run.ts --specs specs/script.ts"
   },
   "repository": {
     "type": "git",
@@ -21,8 +22,10 @@
   },
   "homepage": "https://github.com/Xotabu4/Protractor-Experiments#readme",
   "devDependencies": {
-    "protractor": "^4.0.0",
+    "protractor": "^4.0.9",
     "jasmine-protractor-matchers": "^0.2.0",
-    "typescript": "^2.0.0"
+    "typescript": "^2.0.0",
+    "ts-node": "^1.6.0",
+    "systemjs": "0.19.39"
   }
 }
