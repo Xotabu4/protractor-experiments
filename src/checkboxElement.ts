@@ -7,7 +7,7 @@ export class CheckBox extends ElementFinder {
     }
 
     check(){
-        console.log('Doing check()!:::', this)
+        console.log(':::Doing check()!')
         this.click()
     }
 }

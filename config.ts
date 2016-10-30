@@ -1,9 +1,8 @@
 "use strict";
+import {Config} from 'protractor'
 
-
-exports.config = {
+let conf:Config = {
   directConnect: true,
-
   baseUrl: 'http://www.protractortest.org/testapp/ng1/#/form',
 
   framework: 'jasmine2',
@@ -16,4 +15,5 @@ exports.config = {
 
   }
 };
-console.log('DONE!')
+
+exports.config = conf;
