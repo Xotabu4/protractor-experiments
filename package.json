@@ -26,6 +26,7 @@
     "jasmine-protractor-matchers": "^0.2.0",
     "typescript": "^2.0.0",
     "ts-node": "^1.6.0",
-    "systemjs": "0.19.39"
+    "systemjs": "0.19.39",
+    "protractor-element-extend": "../protractor-element-extend/"
   }
 }

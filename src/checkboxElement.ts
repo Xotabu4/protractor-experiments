@@ -1,9 +1,10 @@
 import {ElementFinder, ElementArrayFinder } from 'protractor'
+import {BaseElement, BaseElementArray} from 'protractor-element-extend'
 
-export class CheckBox extends ElementFinder {
+export class CheckBox extends BaseElement {
 
     constructor(elementToExtend:ElementFinder) {
-      super(elementToExtend.browser_ , elementToExtend.elementArrayFinder_);
+      super(elementToExtend);
     }
 
     check(){
@@ -13,15 +14,10 @@ export class CheckBox extends ElementFinder {
 }
 
 
-export class CheckBoxes extends ElementArrayFinder {
+export class CheckBoxes extends BaseElementArray {
 
-    constructor(elementToExtend:ElementArrayFinder) {
-      super(elementToExtend.browser_ , elementToExtend.getWebElements, elementToExtend.locator_);
-    }
-
-    check(){
-        console.log('Doing check()!:::', this)
-        this.click()
+    constructor(elementsToExtend:ElementArrayFinder) {
+      super(elementsToExtend, CheckBox);
     }
 }
 

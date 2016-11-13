@@ -2,9 +2,9 @@
  * Created by xotab on 28.07.2016.
  */
 
-import {browser, $, by} from 'protractor'
-import {CheckBox} from '../src/checkboxElement'
-declare var describe, it:any
+import {browser, $, by, element} from 'protractor'
+import {CheckBox, CheckBoxes} from '../src/checkboxElement'
+
 
 xdescribe('Matchers tests', function () {
     beforeEach(function () {
@@ -51,28 +51,17 @@ xdescribe('PageObjects!', function () {
     });
 });
 
-xdescribe('Extending WebElements!', function () {
-    it('extending base ElementFinder', function () {
-        browser.get('/');
+describe('Extending WebElements!', function () {
+    it('Checkbox', function () {
+        browser.get('http://www.protractortest.org/testapp/ng1/#/form')
 
-        // so here we are finding element by css selector
-
-        let CheckBox = require('./src/checkboxElement.js');
-        let checkboxwrapped = new CheckBox(by.css('#checkboxes input[ng-model="show"]'));
-        checkboxwrapped.check().then(function () {
-            expect($('#checkboxes input[ng-model="show"]').isSelected()).toBe(false);
-        });
-    });
-
-    it('Checkbox', async function () {
-        browser.get('/')
-        let checkbox = new CheckBox($('LOCATOR HERE!'))
-        checkbox.check()
-        
+        let checkbox = new CheckBoxes(element.all(by.model('show')))
+        checkbox.get(0).check()
+        expect(checkbox.get(0).isSelected()).toBeTruthy();
     }); 
 })
 
-describe('ASYNC/AWAIT', function () {
+xdescribe('ASYNC/AWAIT', function () {
 
     it('', async function () {
         browser.get('/')
