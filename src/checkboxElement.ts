@@ -14,7 +14,7 @@ export class CheckBox extends BaseElement {
 }
 
 
-export class CheckBoxes extends BaseElementArray {
+export class CheckBoxes extends BaseElementArray<CheckBox> {
 
     constructor(elementsToExtend:ElementArrayFinder) {
       super(elementsToExtend, CheckBox);

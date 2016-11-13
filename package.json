@@ -4,7 +4,7 @@
   "description": "Some playing with protractor possibilities",
   "main": "config.js",
   "scripts": {
-    "postinstall": "node ./node_modules/protractor/bin/webdriver-manager update",
+    "rpostinstall": "node ./node_modules/protractor/bin/webdriver-manager update",
     "test": "node ./node_modules/protractor/built/cli built/config.js --specs built/specs/script.js"
   },
   "repository": {
