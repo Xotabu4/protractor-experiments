@@ -4,8 +4,9 @@
   "description": "Some playing with protractor possibilities",
   "main": "config.js",
   "scripts": {
-    "rpostinstall": "node ./node_modules/protractor/bin/webdriver-manager update",
-    "test": "node ./node_modules/protractor/built/cli built/config.js --specs built/specs/script.js"
+    "postinstall": "node ./node_modules/protractor/bin/webdriver-manager update",
+    "pretest": "tsc",
+    "test": "node ./node_modules/protractor/built/cli built/config.js --specs experiments/async_await_*/experiment.js"
   },
   "repository": {
     "type": "git",
@@ -21,10 +22,9 @@
   },
   "homepage": "https://github.com/Xotabu4/Protractor-Experiments#readme",
   "devDependencies": {
-    
-    "protractor": "^4.0.9",
+    "protractor": "angular/protractor#beta",
     "jasmine-protractor-matchers": "^0.2.0",
-    "typescript": "^2.0.0",
+    "typescript": "^2.1.4",
     "ts-node": "^1.6.0",
     "systemjs": "0.19.39",
     "protractor-element-extend": "../protractor-element-extend/"

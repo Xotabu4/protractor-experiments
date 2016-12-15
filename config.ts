@@ -6,7 +6,7 @@ let conf:Config = {
   baseUrl: 'http://www.protractortest.org/testapp/ng1/#/form',
 
   framework: 'jasmine2',
-    specs: ['specs/spec.ts'],
+    specs: ['*/*/experiment.js'],
   capabilities: {
     'browserName': 'chrome'
   },

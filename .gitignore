@@ -1,3 +1,6 @@
 node_modules/
 .idea/
 built/
+.vscode/
+*.js
+*.js.map

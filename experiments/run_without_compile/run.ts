@@ -1,3 +1,10 @@
+/**
+ * Trying to run protractor with TS config file and TS spec files
+ * 
+ * This actually does not work without some dirty black magic
+ * If anyone wants to make this work - feel free to use this code if its helps
+ */
+
 declare var require,process,__dirname:any
 
 var SystemJS = require('systemjs')
