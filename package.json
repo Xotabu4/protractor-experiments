@@ -5,8 +5,7 @@
   "main": "config.js",
   "scripts": {
     "postinstall": "node ./node_modules/protractor/bin/webdriver-manager update",
-    "pretest": "tsc",
-    "test": "node ./node_modules/protractor/built/cli built/config.js --specs experiments/async_await_*/experiment.js"
+    "test": "node --harmony-async-await ./node_modules/protractor/built/cli config.js --specs experiments/async_await_*/experiment.js"
   },
   "repository": {
     "type": "git",
@@ -22,7 +21,9 @@
   },
   "homepage": "https://github.com/Xotabu4/Protractor-Experiments#readme",
   "devDependencies": {
-    "protractor": "angular/protractor#beta",
+    "@types/jasmine": "^2.5.38",
+    "@types/node": "*",
+    "protractor": "../protractor",
     "jasmine-protractor-matchers": "^0.2.0",
     "typescript": "^2.1.4",
     "ts-node": "^1.6.0",

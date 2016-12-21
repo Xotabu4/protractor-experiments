@@ -10,12 +10,20 @@ import {browser, $, by, element} from 'protractor'
  * You need TypeScript 2.1
  * You need NodeJS 7.x
  * you need SELENIUM_PROMISE_MANAGER = 0 as environment variable
+ * https://github.com/SeleniumHQ/selenium/issues/2969
+ * 
+ * You need to patch jasminewd function 
+   function validateFunction(functionToValidate) {
+       replace if (functionToValidate && Object.prototype.toString.call(functionToValidate) === '[object Function]') {
+       with if (functionToValidate && (Object.prototype.toString.call(functionToValidate) === '[object Function]' || Object.prototype.toString.call(functionToValidate) === '[object AsyncFunction]' )) {
  */
 
-xdescribe('async/await', function () {
-    it('', async function () {
-        browser.get('/')
+describe('async/await', ()=> {
+
+    it('simple async assertion', async function () {
+        browser.get('')
         let attributeClass = await $('body').getAttribute('class')
-        console.log('ATTRIBUTE CLASS', attributeClass == 'ng-scope')
+        console.log('When using await - assertion goes to resolved object',
+                     attributeClass == 'ng-scope')
     })
 })
