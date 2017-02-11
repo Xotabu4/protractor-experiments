@@ -4,8 +4,8 @@
  * This actually does not work without some dirty black magic
  * If anyone wants to make this work - feel free to use this code if its helps
  */
-
-declare var require,process,__dirname:any
+// import {Process} from '@node'
+// declare var require:NodeRequire, process:Process, __dirname:string
 
 var SystemJS = require('systemjs')
 var typescript = require('typescript')

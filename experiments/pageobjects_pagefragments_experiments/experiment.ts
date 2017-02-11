@@ -1,3 +1,4 @@
+import {browser, element, by, $} from 'protractor'
 
 xdescribe('PageObjects', function () {
 
