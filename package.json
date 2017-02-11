@@ -5,7 +5,10 @@
   "main": "config.js",
   "scripts": {
     "postinstall": "node ./node_modules/protractor/bin/webdriver-manager update",
-    "test": "node --harmony-async-await ./node_modules/protractor/built/cli config.js --specs experiments/async_await_*/experiment.js"
+    "tsc": "tsc",
+    "test": "echo 'PLEASE RUN ONE SCRIPT WITH DIRRECT COMMAND IN PACKAGE.JSON'",
+    "webelement_extend": "tsc && protractor config.js --specs experiments/webelement_extend_experiments/experiment.js",
+    "matchers": "tsc && protractor config.js --specs experiments/matchers_experiments/experiment.js"
   },
   "repository": {
     "type": "git",
@@ -22,9 +25,9 @@
   "homepage": "https://github.com/Xotabu4/Protractor-Experiments#readme",
   "devDependencies": {
     "@types/jasmine": "^2.5.38",
-    "@types/node": "*",
-    "protractor": "../protractor",
-    "jasmine-protractor-matchers": "^0.2.0",
+    "@types/node": "^7.0.0",
+    "protractor": "^5.1.1",
+    "jasmine-protractor-matchers": "1.0.1",
     "typescript": "^2.1.4",
     "ts-node": "^1.6.0",
     "systemjs": "0.19.39",

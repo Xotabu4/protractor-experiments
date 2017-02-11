@@ -1,7 +1,7 @@
 import {ElementFinder, ElementArrayFinder } from 'protractor'
-import {BaseElement, BaseElementArray} from 'protractor-element-extend'
+import {BaseFragment} from 'protractor-element-extend'
 
-export class CheckBox extends BaseElement {
+export class CheckBox extends BaseFragment {
 
     constructor(elementToExtend:ElementFinder) {
       super(elementToExtend);
@@ -13,12 +13,18 @@ export class CheckBox extends BaseElement {
     }
 }
 
-
-export class CheckBoxes extends BaseElementArray<CheckBox> {
+/*
+export class CheckBoxes extends BaseArrayFragment {
 
     constructor(elementsToExtend:ElementArrayFinder) {
       super(elementsToExtend, CheckBox);
     }
-}
 
+    check() {
+        //TODO: ERROR! seems like old friend came back. Getting RangeError: Maximum call stack size exceeded
+        // .each() calls .map inside, so same error appears.
+        this.each((el:any, num)=>{el.check(); console.log('checked number: ', num)})
+    }
+}
+*/
 
