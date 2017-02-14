@@ -31,6 +31,6 @@
     "typescript": "^2.1.4",
     "ts-node": "^1.6.0",
     "systemjs": "0.19.39",
-    "protractor-element-extend": "../protractor-element-extend/"
+    "protractor-element-extend": "1.0.0"
   }
 }
