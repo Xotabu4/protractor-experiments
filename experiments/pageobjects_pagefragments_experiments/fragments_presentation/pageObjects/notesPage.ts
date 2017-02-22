@@ -7,15 +7,14 @@ import {$$, $, element, browser, by, ExpectedConditions as EC} from 'protractor'
 export class NotesPage  {
     noteEditor:NoteEditorFragment
     navigationBar:NavigationBarFragment
-    notes:NotesCollectionFragment
+    notes:NotesCollectionFragment<NoteFragment>
 
     constructor() {
         this.noteEditor = new NoteEditorFragment()
         this.navigationBar = new NavigationBarFragment()
-        this.notes = new NotesCollectionFragment(
+        this.notes = new NotesCollectionFragment<NoteFragment>(
                             $$('.grid-container .grid-item'), 
                             NoteFragment)
-    
     }
 
 }
@@ -49,3 +48,18 @@ class NoteEditorFragment extends BaseFragment {
                      2000, 'Title and Body field should be ready to type after activation')
     }
 }
+
+
+
+    module.exports.config = {
+        //somewhere in your config
+        onPrepare: function () {
+            beforeEach(function () {
+                //This will be executed before EVERY 'it' in each specfile
+            })
+
+            beforeAll(function () {
+                //This will be executed before EVERY 'describe' in each specfile (even before nested describes)
+            })
+        }
+    }

@@ -7,10 +7,10 @@ export class DeletedNoteFragment extends AbstractNote {
     }
 
     deleteForever() {
-
+        console.log('deleting forever...')
     }
 
     restore() {
-
+        console.log('restoring...')
     }
 }

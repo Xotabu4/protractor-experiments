@@ -11,14 +11,14 @@ export class ArchivedNoteFragment extends AbstractNote {
     }
 
     unarchive() {
-        
+        console.log('unarhiving...')
     }
 
     delete() {
-
+        console.log('deleting...')
     }
 
     changeColor(color:string) {
-
+        console.log('changing color...')
     }
 }

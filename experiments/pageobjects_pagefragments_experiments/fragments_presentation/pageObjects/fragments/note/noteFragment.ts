@@ -11,14 +11,14 @@ export class NoteFragment extends AbstractNote {
     }
 
     archive() {
-
+        console.log('archiving...')
     }
 
     delete() {
-
+        console.log('deleting...')
     }
 
     changeColor(color:string) {
-
+        console.log('changing color...')
     }
 }

@@ -1,10 +1,17 @@
-import {ElementFinder, ElementArrayFinder} from 'protractor'
+import { ElementFinder, ElementArrayFinder } from 'protractor'
 
-//Wrapper around ElementArrayFinder.
-export class NotesCollectionFragment {
-    arrayFinder:ElementArrayFinder
-    class_:any
-    constructor(arrayFinder:ElementArrayFinder, class_:any) {
+/*
+    Wrapper around ElementArrayFinder. Dirty hack while protractor bug will be fixed:
+    https://github.com/angular/protractor/issues/2227
+*/
+export class NotesCollectionFragment<T> {
+    arrayFinder: ElementArrayFinder
+    class_: any
+    /**
+     * @param arrayFinder - ElementArrayFinder that you want to wrap
+     * @param class_ - constructor function(class) that will be used to wrap each element of arrayFinder
+     */
+    constructor(arrayFinder: ElementArrayFinder, class_: any) {
         this.arrayFinder = arrayFinder
         this.class_ = class_
     }
@@ -13,7 +20,7 @@ export class NotesCollectionFragment {
         return new this.class_(this.arrayFinder.get(index))
     }
 
-    first() {
+    first():T {
         return new this.class_(this.arrayFinder.first())
     }
 
@@ -25,14 +32,15 @@ export class NotesCollectionFragment {
         return this.arrayFinder.count()
     }
 
-    each(func:Function) {
-        return this.arrayFinder.each((elem, index)=> {
+    each(func: Function) {
+        return this.arrayFinder.each((elem, index) => {
             return func(new this.class_(elem), index)
         })
     }
 
-    map(func:Function) {
-        return this.arrayFinder.map((elem, index)=> {
+    map(func: Function) {
+        // This method is potentially unsafe, it can lead to stackoverflow due to protractor bug
+        return this.arrayFinder.map((elem, index) => {
             return func(new this.class_(elem), index)
         })
     }
