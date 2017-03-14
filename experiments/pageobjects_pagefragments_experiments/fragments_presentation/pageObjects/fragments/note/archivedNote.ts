@@ -1,12 +1,12 @@
-import {ElementFinder} from 'protractor'
-import {AbstractNote} from './abstractNote'
+import { ElementFinder } from 'protractor'
+import { AbstractNote } from './abstractNote'
 
-export class ArchivedNoteFragment extends AbstractNote {    
+export class ArchivedNoteFragment extends AbstractNote {
     constructor(elem) {
-        super(elem)        
+        super(elem)
     }
-    
-    edit(title:string, body:string) {
+
+    edit(title: string, body: string) {
         console.log('editing...')
     }
 
@@ -18,7 +18,7 @@ export class ArchivedNoteFragment extends AbstractNote {
         console.log('deleting...')
     }
 
-    changeColor(color:string) {
+    changeColor(color: string) {
         console.log('changing color...')
     }
 }

@@ -14,7 +14,6 @@ describe('Matchers tests', function () {
 
     it('creating custom jasmine matcher function with wait - negative case', function () {
         browser.get('/');
-
         (expect($('nonexist')) as any).toAppear();
         (expect($('body')) as any).toDisappear();
         //expect((expect($('body')) as any).toDisappear).toThrowError();

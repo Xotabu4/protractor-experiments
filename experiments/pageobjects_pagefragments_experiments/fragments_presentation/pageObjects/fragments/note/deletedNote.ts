@@ -1,9 +1,9 @@
-import {ElementFinder} from 'protractor'
-import {AbstractNote} from './abstractNote'
+import { ElementFinder } from 'protractor'
+import { AbstractNote } from './abstractNote'
 
-export class DeletedNoteFragment extends AbstractNote {    
+export class DeletedNoteFragment extends AbstractNote {
     constructor(elem) {
-        super(elem)        
+        super(elem)
     }
 
     deleteForever() {
