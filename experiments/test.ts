@@ -1,5 +1,7 @@
-// import { browser, element, by, ExpectedConditions as EC, $, $$ } from 'protractor'
+import { browser, element, by, ExpectedConditions as EC, $, $$ } from 'protractor'
 
-// describe('Promises', function () {
-
-// });
+describe('Promises', function () {
+    it('ololo', ()=>{
+ 
+    })
+});

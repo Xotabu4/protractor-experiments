@@ -22,6 +22,5 @@ export class AbstractNote extends BaseFragment {
     getColor() {
         return this.getCssValue('background-color')
     }
-
 }
 

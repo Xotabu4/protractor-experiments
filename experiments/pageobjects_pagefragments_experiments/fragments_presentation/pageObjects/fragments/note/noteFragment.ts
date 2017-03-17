@@ -1,4 +1,3 @@
-import { ElementFinder } from 'protractor'
 import { AbstractNote } from './abstractNote'
 
 export class NoteFragment extends AbstractNote {

@@ -1,8 +1,8 @@
-import {$, $$, ExpectedConditions as EC, browser} from 'protractor'
+import {$, $$, ExpectedConditions as EC, browser, ElementFinder} from 'protractor'
 import {BaseFragment} from 'protractor-element-extend'
 
 export class NavigationBarFragment extends BaseFragment {
-    openMenuButton
+    openMenuButton:ElementFinder
 
     constructor() {
         super($('.navbar'))
@@ -17,7 +17,6 @@ export class NavigationBarFragment extends BaseFragment {
 
         return menu
     }
-
 }
 
 class MenuFragment extends BaseFragment {

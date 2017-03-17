@@ -22,7 +22,6 @@ describe('Page Fragments', function () {
 
         browser.wait(EC.urlContains('archive-notes'), 5000, 
             'Url should contain "archive-notes" after navigate')
-
     })
 
     it('use OOP to make your tests more flexible', function () {
