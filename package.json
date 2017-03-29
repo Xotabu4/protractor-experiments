@@ -9,7 +9,8 @@
     "test": "echo 'PLEASE RUN ONE SCRIPT WITH DIRRECT COMMAND IN PACKAGE.JSON'",
     "promises": "tsc && protractor config.js --specs experiments/test.js",
     "webelement_extend": "tsc && protractor config.js --specs experiments/webelement_extend_experiments/experiment.js",
-    "matchers": "tsc && protractor config.js --specs experiments/matchers_experiments/experiment.js"
+    "matchers": "tsc && protractor config.js --specs experiments/matchers_experiments/experiment.js",
+    "async": "tsc && protractor config.js --specs experiments/async_await_experiments/experiment.js"
   },
   "repository": {
     "type": "git",

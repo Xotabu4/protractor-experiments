@@ -1,10 +1,10 @@
 import { $, $$, browser, element, by, ExpectedConditions as EC } from 'protractor'
 import { CheckBoxes, CheckBox } from './checkboxElement'
 
-describe('Extending ElementFinder/ElementArrayFinder', function () {
+xdescribe('Extending ElementFinder/ElementArrayFinder', function () {
     //Does not work yet. Switch to lib branch 2.0.0
     it('custom collection extended from ElementArrayFinder', function () {
-        browser.get('http://www.protractortest.org/testapp/ng1/#/form')
+        browser.get('')
 
         let checkboxes = new CheckBoxes(element.all(by.model('show')))
 
@@ -24,4 +24,10 @@ describe('Extending ElementFinder/ElementArrayFinder', function () {
         first.isSelected().then(console.log)
         expect(first.isSelected()).toBeTruthy();
     });
+})
+
+describe('Getting parrent element locator inside nested fragments', () => {
+    it('custom collection extended from ElementArrayFinder', function () {
+
+    })
 })
