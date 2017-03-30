@@ -29,10 +29,10 @@
     "@types/jasmine": "^2.5.38",
     "@types/node": "^7.0.0",
     "protractor": "^5.1.1",
-    "jasmine-protractor-matchers": "../jasmine-protractor-matchers/",
+    "jasmine-protractor-matchers": "1.0.1",
     "typescript": "^2.1.4",
     "ts-node": "^1.6.0",
     "systemjs": "0.19.39",
-    "protractor-element-extend": "../protractor-element-extend"
+    "protractor-element-extend": "2.0.1"
   }
 }

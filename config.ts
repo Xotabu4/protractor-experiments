@@ -11,8 +11,9 @@ let conf: Config = {
   capabilities: {
     'browserName': 'chrome',
     'chromeOptions': {
-      'androidPackage': 'com.android.chrome',
-      'androidDeviceSerial':'emulator-5554'
+      'mobileEmulation': {'deviceName': 'Google Nexus 5'}
+      //'androidPackage': 'com.android.chrome',
+      //'androidDeviceSerial':'emulator-5554'
     }
   },
 
