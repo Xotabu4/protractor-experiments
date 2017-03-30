@@ -1,8 +1,7 @@
 # Protractor-Experiments
-Trying protractor.js for different situations
+Having fun with protractor. This repo is my experiments with this cool framework.
+Some of them can be broken. 
 
-- Trying to provide different pageobjects depending on browser
-- Trying to extend ElementFinder to provide additional method, and to use this.$('foo') syntax.
-- Fun with async/await
+/experiments/async_await_experiments - trying protractorJS with fresh async/await syntax. Please refer config file in that directory for more details about setup
 
-[![Build Status](https://travis-ci.org/Xotabu4/Protractor-Experiments.svg?branch=master)](https://travis-ci.org/Xotabu4/Protractor-Experiments)
+/experiments/matchers_expe

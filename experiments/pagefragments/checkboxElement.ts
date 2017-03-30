@@ -21,8 +21,6 @@ export class CheckBoxes extends BaseArrayFragment<CheckBox> {
     }
 
     check() {
-        //TODO: ERROR! seems like old friend came back. Getting RangeError: Maximum call stack size exceeded
-        // .each() calls .map inside, so same error appears.
         this.each((el: any, num) => {
             el.check();
             console.log('checked number: ', num)
