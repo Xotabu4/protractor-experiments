@@ -2,19 +2,13 @@
 import { Config, ExpectedConditions, $ } from 'protractor'
 
 let conf: Config = {
-  //directConnect: true,
-  seleniumAddress: 'http://localhost:4444/wd/hub/',
+  directConnect: true,
   baseUrl: 'http://www.protractortest.org/testapp/ng1/#/form',
 
   framework: 'jasmine2',
   specs: ['*/*/experiment.js'],
   capabilities: {
     'browserName': 'chrome',
-    'chromeOptions': {
-      'mobileEmulation': {'deviceName': 'Google Nexus 5'}
-      //'androidPackage': 'com.android.chrome',
-      //'androidDeviceSerial':'emulator-5554'
-    }
   },
 
   onPrepare: function () {
