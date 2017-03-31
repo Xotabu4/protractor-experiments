@@ -18,4 +18,4 @@ cd built/experiments/multibrowser_pageobjects && protractor
 
 Idea is to have shared logic in BasicPage (this can be even abstract class), but this object won't be used directly. Instead you will work with pageobjects for each user.
 
-
+![alt tag](https://github.com/Xotabu4/Protractor-Experiments/blob/master/experiments/multibrowser_pageobjects/structure.jpeg?raw=true)
