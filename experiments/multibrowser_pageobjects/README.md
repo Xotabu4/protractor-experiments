@@ -10,9 +10,9 @@ Add additional method to browser instance, that will find apropriate page object
 To run - 
 1) Compile everything  
 `npm run tsc`
-2) Run with global protractor (or local) -  
+2) Run with global protractor (or local) in current directory -  
 ```
-cd built/experiments/multibrowser_pageobjects && protractor
+protractor
 ```
 
 

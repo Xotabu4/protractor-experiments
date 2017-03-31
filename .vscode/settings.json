@@ -1,0 +1,8 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    // Hidding js files if only ts file present. NICE! 
+    "files.exclude": {
+        "**/*.js": {"when": "$(basename).ts"},
+        "**/*.js.map": true
+    }
+}
