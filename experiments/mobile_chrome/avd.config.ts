@@ -35,14 +35,15 @@
 import { Config, ExpectedConditions, $ } from 'protractor'
 
 let conf: Config = {
-  seleniumAddress: 'http://localhost:4444/wd/hub/',
+  //seleniumAddress: 'http://localhost:4444/wd/hub/',
+  directConnect: true,
   baseUrl: 'http://www.protractortest.org/testapp/ng1/#/form',
   specs: ['./experiment.js'],
   capabilities: {
     'browserName': 'chrome',
     'chromeOptions': {
       'androidPackage': 'com.android.chrome',
-      'androidDeviceSerial':'emulator-5554' //This line is optional, only if you have few devices attached.
+      //'androidDeviceSerial':'emulator-5554' //This line is optional, only if you have few devices attached. Put your device id here
     }
   }
 };
