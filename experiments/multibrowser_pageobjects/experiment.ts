@@ -1,48 +1,35 @@
-import {browser, element, by, $} from 'protractor'
+import { browser, element, by, $, ProtractorBrowser } from 'protractor'
+import { HomePage, BasePage, OwnBrowser, getPage } from './pages'
 
 /**
- * Sometimes you need to write tests that are working with 2 browsers same time
- * For example - chats, video, some colaboration tools
- * It is hard to keep objects in good shape. 
- * This is one of the first version of pattern, 
- */ 
+ * Sometimes you need to write tests for multiple user roles
+ * It is hard to keep objects in good shape, because each role requires own PageObject
+ * 
+ * This experiment is attempt to detect version of pageObject that needed from special parameter 'role'
+ * might be scaled for as many browsers as you need.
+ */
 
 describe('Multibrowser PageObjects', function () {
-    let admin:any
-    let user:any
+    let admin: OwnBrowser
+    let user: OwnBrowser
+    let guest: OwnBrowser
 
-    beforeEach(()=> {
-        var getPage = (page)=> {
-            if (this.isAdmin) {
-                let firstPage = page.adminVersion;
-                return new firstPage();
-            }
-            if (this.isUser) {
-                let secondPage = page.secondVersion;
-                return new secondPage();
-            }
-        }
-        admin = browser;
-        user = browser.forkNewDriverInstance();
-        
-        admin.isAdmin = true;
-        user.isUser = false;
-        
-        user.isAdmin = false;
-        user.isUser = true;
-
-        admin.getPage = getPage;
-        user.getPage = getPage;
-    })
+    beforeEach(() => admin = browser as OwnBrowser)
 
     it('creating different pageobject instances depending on browser', function () {
-        var HomePage = require('./pages.js').HomePage;
-        
-        let resultadmin = admin.getPage(HomePage).banAllUsers();
-        let resultuser = user.getPage(HomePage).login();
+        let adminPage = admin.getPage(HomePage)
+        let userPage = user.getPage(HomePage)
+        let guestPage = guest.getPage(HomePage, 'guest')
 
-        expect(resultadmin).toBe('ALL USERS ARE BANNED!');
-        expect(resultuser).toBe('YOU ARE LOGGED IN!');
 
+        //Some specific actions
+        expect(adminPage.banAllUsers()).toBe('ALL USERS ARE BANNED!');
+        expect(userPage.createTask()).toBe('Task Created!');
+        expect(guestPage.login()).toBe('YOU ARE LOGGED IN!');
+
+        //Shared actions between all roles
+        expect(adminPage.contactSupport()).toBe('SUPPORT CONTACTED');
+        expect(userPage.contactSupport()).toBe('SUPPORT CONTACTED');
+        expect(guestPage.contactSupport()).toBe('SUPPORT CONTACTED');
     });
 });
