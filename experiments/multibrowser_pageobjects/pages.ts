@@ -1,20 +1,19 @@
 import { browser, element, by, $, ProtractorBrowser } from 'protractor'
 
-export function getPage<T extends BasePage, K extends keyof HomePageRoles>(page: Page, role:string): HomePageRoles[K] {
-    //TODO: Unfortunately loosing types here. Don't know how to better fix this.
-    let obj = page.versions[role]
-    return obj
-}
-
 export interface OwnBrowser extends ProtractorBrowser {
     role: 'admin' | 'user' | 'guest'
 }
 
-
-
 interface Page {
     new (_browsr: OwnBrowser)
-    versions: HomePageRoles
+    versions: Roles
+}
+
+export function getPage(page: Page) {
+    //TODO: Unfortunately loosing types here. Don't know how to better fix this. Should dig into this:
+    //https://blog.mariusschulz.com/2017/01/06/typescript-2-1-keyof-and-lookup-types
+    let obj = page.versions[(this as OwnBrowser).role]
+    return obj
 }
 
 interface Roles {
@@ -23,17 +22,9 @@ interface Roles {
     guest
 }
 
-interface HomePageRoles extends Roles {
-    admin: AdminHomePage,
-    user: UserHomePage,
-    guest: GuestHomePage
-}
-
-
 export class BasePage {
     constructor(protected _browsr: OwnBrowser) { }
-};
-
+}
 
 /**
  * Each your Page will have 4 versions
@@ -44,15 +35,17 @@ export class BasePage {
  * and so on.
  * getPage function knows what version of page to return depending on browser.
  */
-
-
 export class HomePage extends BasePage {
-    versions: HomePageRoles
+    versions: {
+        'admin': AdminHomePage,
+        'user': UserHomePage,
+        'guest': GuestHomePage
+    }
 
     //Some shared action between all user roles.
     contactSupport() {
-    return 'SUPPORT CONTACTED'
-}
+        return 'SUPPORT CONTACTED'
+    }
 }
 
 class AdminHomePage extends HomePage {
