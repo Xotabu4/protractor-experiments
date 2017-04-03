@@ -4,5 +4,13 @@
     "files.exclude": {
         "**/*.js": {"when": "$(basename).ts"},
         "**/*.js.map": true
-    }
+    },
+
+    
+    "eslint.options": { 
+        "configFile": ".eslintrc.json"
+        }
+    
+
+
 }
