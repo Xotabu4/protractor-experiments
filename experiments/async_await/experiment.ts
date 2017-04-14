@@ -15,6 +15,6 @@ describe('async/await', ()=> {
 
     it('testing rejected promises', async function () {
         await browser.get('')
-        await $('body').getText().then(console.log)
+        await $('body').getText()
     })
 })
