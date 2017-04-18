@@ -53,3 +53,33 @@ describe('Verifying #10 bug', () => {
     })
 
 })
+
+
+
+
+class Select extends BaseFragment {
+    constructor(element) {
+        super(element);
+    }
+
+    selectOption(text) {
+        this.element(by.cssContainingText('option', text)).click();
+    }
+
+    getSelectedText() {
+    	// NOTE: Apparently you can't use the shorthand element locators ($ and $$) with this package.
+        return this.$('select').getAttribute('value')
+            .then((index) => {
+                return this.element(by.css(`option[value="${index}"]`)).getText();
+            });
+    }
+}
+
+describe('Verifying #10 bug with same objects', () => {
+    it('with fragment', () => {
+        browser.get('')
+        let select_frag = new Select($('body'))
+        let text = select_frag.getSelectedText()
+        text.then(rtext => console.log('$$$$ got text', rtext))
+    })
+})
