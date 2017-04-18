@@ -1,6 +1,3 @@
-
-declare function it(param:string, func:Function):any //Original it returns void in typings
-
 const doRun = true
 const doNotRun = false
 
@@ -12,6 +9,8 @@ let runIf = (condition, suiteOrTest) => {
     // https://jasmine.github.io/api/edge/global.html#it
 }
 
+declare function it(first:any, second:any): any
+
 describe('Conditional execution', runIf(doRun, () => {
     it('Test that will be executed', () => {
         console.log('I SHOULD BE RUN!')
@@ -21,10 +20,10 @@ describe('Conditional execution', runIf(doRun, () => {
         // Some other test
         console.log('I SHOULD NOT BE RUN!')
     }))
-    
-    it('original pending', ()=>{
+
+    (it('original pending', () => {
         console.log('i am pending')
-    }).pend('PENDING')
+    }) as any).pend('PENDING')
 }))
 
 let runSuiteIf = (condition, suiteOrTest) => {

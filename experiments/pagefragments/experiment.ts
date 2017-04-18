@@ -1,5 +1,6 @@
 import { $, $$, browser, element, by, ExpectedConditions as EC } from 'protractor'
 import { CheckBoxes, CheckBox } from './checkboxElement'
+import { BaseFragment } from 'protractor-element-extend'
 
 xdescribe('Extending ElementFinder/ElementArrayFinder', function () {
     //Does not work yet. Switch to lib branch 2.0.0
@@ -26,8 +27,29 @@ xdescribe('Extending ElementFinder/ElementArrayFinder', function () {
     });
 })
 
-describe('Getting parrent element locator inside nested fragments', () => {
-    it('custom collection extended from ElementArrayFinder', function () {
+class TestFragment extends BaseFragment {
+    constructor(element) {
+        super(element);
+    }
 
+    getOneInnerElement() {
+        return this.$('span')
+    }
+
+    getManyInnerElements() {
+        return this.$$('span')
+    }
+}
+
+describe('Verifying #10 bug', () => {
+    it('checking $ function', () => {
+        browser.get('')
+        browser.sleep(5000)
+        let text = new TestFragment($('html')).getOneInnerElement().getText()
+        text.then(rtext=> console.log('OLOLO', rtext))
+
+        let texts = new TestFragment($('html')).getManyInnerElements().getText()
+        texts.then(rtexts=> console.log('OLOLO', rtexts))
     })
+
 })
