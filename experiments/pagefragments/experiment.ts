@@ -32,6 +32,10 @@ class TestFragment extends BaseFragment {
         super(element);
     }
 
+    getText() {
+        return this.getAttribute('value')
+    }
+
     getOneInnerElement() {
         return this.$('span')
     }
@@ -41,10 +45,10 @@ class TestFragment extends BaseFragment {
     }
 }
 
-describe('Verifying #10 bug', () => {
+xdescribe('Verifying #10 bug', () => {
     it('checking $ function', () => {
         browser.get('')
-        browser.sleep(5000)
+        //browser.sleep(5000)
         let text = new TestFragment($('html')).getOneInnerElement().getText()
         text.then(rtext=> console.log('OLOLO', rtext))
 
