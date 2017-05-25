@@ -4,6 +4,7 @@
   "description": "Some playing with protractor possibilities",
   "scripts": {
     "postinstall": "webdriver-manager update",
+    "protr": "protractor experiments/pagefragments/protractor.conf.js",
     "tsc": "tsc",
     "tscw": "tsc -w"
   },
@@ -26,11 +27,12 @@
     "eslint": "^3.19.0",
     "eslint-config-google": "^0.7.1",
     "eslint-plugin-protractor": "^1.34.2",
-    "jasmine-protractor-matchers": "^1.0.1",
+    "jasmine-protractor-matchers": "../jasmine-protractor-matchers/",
     "protractor": "^5.1.1",
     "protractor-element-extend": "^2.0.1",
     "systemjs": "0.19.39",
     "ts-node": "^1.6.0",
-    "typescript": "^2.1.4"
+    "typescript": "^2.1.4",
+    "reportportal-client": "^3.0.0"
   }
 }
