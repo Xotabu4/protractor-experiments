@@ -18,28 +18,28 @@ export class ReportPortal {
     }
 
     async jasmineStarted(suiteInfo) {
-        let resp = await this.RPclient.startLaunch({
+        let resp = this.RPclient.startLaunch({
             start_time: new Date().valueOf(),
             name: "PROTRACTOR",
         })
         console.log('GOT LAUNCH ID', resp.id)
-        this.launchID = resp.id
+        this.launchID = resp.then(res=> res.id)
     }
 
     async suiteStarted(suite: any) {
-        console.log(this.launchID)
+        console.log(await this.launchID)
         this.currentSuite = suite
         let requestData = {
             name: this.currentSuite.fullName,
-            launch_id: this.launchID,
+            launch_id: await this.launchID,
             start_time: new Date().valueOf(),
             type: "SUITE",
             description: this.currentSuite.description,
         }
 
-        let resp = await this.RPclient.startTestItem(requestData)
+        let resp = this.RPclient.startTestItem(requestData)
         console.log('SUITE ID IS: ', resp)
-        this.currentSuite.reportportal_id = resp.id
+        this.currentSuite.reportportal_id = resp.then(res=> res.id)
     }
 
     async specStarted(spec) {
@@ -47,14 +47,14 @@ export class ReportPortal {
 
         let requestData = {
             name: this.currentTest.description,
-            launch_id: this.launchID,
+            launch_id: await this.launchID,
             start_time: new Date().valueOf(),
             type: "TEST",
             description: this.currentTest.description,
         }
-        let resp = await this.RPclient.startTestItem(requestData, this.currentSuite.reportportal_id)
+        let resp = this.RPclient.startTestItem(requestData, await this.currentSuite.reportportal_id)
         console.log('TESTID IS ', resp)
-        this.currentTest.reportportal_id = resp.id
+        this.currentTest.reportportal_id = resp.then(res=> res.id)
     }
 
     async specDone(result) {
@@ -63,7 +63,7 @@ export class ReportPortal {
             end_time: new Date().valueOf()
         }
         console.log('FINISHING TEST', this.currentTest)
-        this.RPclient.finishTestItem(this.currentTest.reportportal_id, params)
+        this.RPclient.finishTestItem(await this.currentTest.reportportal_id, params)
     }
 
     async suiteDone(suite) {
@@ -72,7 +72,7 @@ export class ReportPortal {
             end_time: new Date().valueOf()
         }
         console.log('FINISHING SUITE', this.currentSuite)
-        this.RPclient.finishTestItem(this.currentSuite.reportportal_id, params)
+        this.RPclient.finishTestItem(await this.currentSuite.reportportal_id, params)
     }
 
     async jasmineDone(results) {
@@ -80,9 +80,9 @@ export class ReportPortal {
             status: 'passed',
             end_time: new Date().valueOf()
         }
-        console.log('Launchid', this.launchID)
+        console.log('Launchid', await this.launchID)
         try {
-            await this.RPclient.finishLaunch(this.launchID, params)
+            await this.RPclient.finishLaunch(await this.launchID, params)
         } catch (err) {
             console.log('got error durring finishLaunch', err)
         }
