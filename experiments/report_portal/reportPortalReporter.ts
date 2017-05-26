@@ -58,7 +58,7 @@ export class ReportPortal {
     }
 
     async specDone(result) {
-        var params = {
+        let params = {
             status: result.status,
             end_time: new Date().valueOf()
         }
@@ -67,7 +67,7 @@ export class ReportPortal {
     }
 
     async suiteDone(suite) {
-        var params = {
+        let params = {
             status: suite.status,
             end_time: new Date().valueOf()
         }
@@ -76,7 +76,7 @@ export class ReportPortal {
     }
 
     async jasmineDone(results) {
-        var params = {
+        let params = {
             status: 'passed',
             end_time: new Date().valueOf()
         }
