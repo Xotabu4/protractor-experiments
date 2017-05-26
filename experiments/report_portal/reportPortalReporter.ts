@@ -12,7 +12,7 @@ export class ReportPortal {
             project: "default_personal",
             token: "4044a955-30da-499e-a42b-945009af17bb",
             launch: "TEST LAUNCH"
-        };
+        }
 
         this.RPclient = new Service(rpConfig);
     }
@@ -20,9 +20,9 @@ export class ReportPortal {
     async jasmineStarted(suiteInfo) {
         let resp = await this.RPclient.startLaunch({
             start_time: new Date().valueOf(),
-            name: "JS TEST NAME",
+            name: "PROTRACTOR",
         })
-        console.log(resp)
+        console.log('GOT LAUNCH ID', resp.id)
         this.launchID = resp.id
     }
 
@@ -30,47 +30,62 @@ export class ReportPortal {
         console.log(this.launchID)
         this.currentSuite = suite
         let requestData = {
-            name: "OLOLONAME SUITE",
+            name: this.currentSuite.fullName,
             launch_id: this.launchID,
             start_time: new Date().valueOf(),
             type: "SUITE",
-            description: this.currentSuite.fullName,
+            description: this.currentSuite.description,
         }
 
         let resp = await this.RPclient.startTestItem(requestData)
-        console.log(resp)
+        console.log('SUITE ID IS: ', resp)
+        this.currentSuite.reportportal_id = resp.id
     }
 
     async specStarted(spec) {
+        this.currentTest = spec
+
         let requestData = {
-            name: "OLOLONAME TEST",
+            name: this.currentTest.description,
             launch_id: this.launchID,
             start_time: new Date().valueOf(),
             type: "TEST",
-            description: 'MY TEST NAME!',
+            description: this.currentTest.description,
         }
-        let resp = await this.RPclient.startTestItem(requestData)
-        console.log(resp)
+        let resp = await this.RPclient.startTestItem(requestData, this.currentSuite.reportportal_id)
+        console.log('TESTID IS ', resp)
+        this.currentTest.reportportal_id = resp.id
     }
 
-    specDone(result) {
-        //this.RPclient.finishTestItem()
+    async specDone(result) {
+        var params = {
+            status: result.status,
+            end_time: new Date().valueOf()
+        }
+        console.log('FINISHING TEST', this.currentTest)
+        this.RPclient.finishTestItem(this.currentTest.reportportal_id, params)
     }
 
-    suiteDone(suite) {
-
+    async suiteDone(suite) {
+        var params = {
+            status: suite.status,
+            end_time: new Date().valueOf()
+        }
+        console.log('FINISHING SUITE', this.currentSuite)
+        this.RPclient.finishTestItem(this.currentSuite.reportportal_id, params)
     }
 
-    jasmineDone() {
-        console.log('Finished Jasmine');
+    async jasmineDone(results) {
+        var params = {
+            status: 'passed',
+            end_time: new Date().valueOf()
+        }
+        console.log('Launchid', this.launchID)
+        try {
+            await this.RPclient.finishLaunch(this.launchID, params)
+        } catch (err) {
+            console.log('got error durring finishLaunch', err)
+        }
+
     }
 }
-
-let reporter = new ReportPortal()
-async function doRun() {
-    await reporter.jasmineStarted({})
-    await reporter.suiteStarted({})
-    await reporter.specStarted({})
-}
-//doRun()
-

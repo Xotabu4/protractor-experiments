@@ -1,14 +1,16 @@
 import { browser, $, by, element } from 'protractor'
 
-describe('Tests', () => {
+describe('NAME: SUITE', () => {
 
-    it('Passed TEST!', async function () {
+    it('NAME: Passed TEST!', async function () {
         await browser.get('')
+        await browser.sleep(2000)
         await $('body').getText()
     })
 
-    it('FAILED TEST!', async function () {
+    it('NAME: FAILED TEST!', async function () {
         await browser.get('')
+        await browser.sleep(2000)
         await $('nonexist').getText()
     })
 })
