@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+
+process.env.NODE_ENV = process.env.NODE_ENV || 'test';
+
+// Registering ts-node before loading protractor - https://github.com/TypeStrong/ts-node
+require('ts-node/register')
+
+require('protractor/built/cli.js');
