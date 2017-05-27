@@ -3,7 +3,7 @@ import { Config } from 'protractor'
 let conf: Config = {
     directConnect: true,
     baseUrl: 'http://www.protractortest.org/testapp/ng1/#/form',
-    specs: ['./experiment.js'],
+    specs: ['./experiment.ts'],
     SELENIUM_PROMISE_MANAGER: false
 }
 
