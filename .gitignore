@@ -2,6 +2,3 @@ node_modules/
 .idea/
 *.js
 *.js.map
-
-!experiments/run_without_complie/*.js
-experiments/run_without_complie/node_modules/
