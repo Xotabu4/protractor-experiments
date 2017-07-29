@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+
+process.env.NODE_ENV = process.env.NODE_ENV || 'test';
+
+console.warn(process.cwd())
+
+process.argv[1] = process.cwd()
+
+let new_args = process.argv
+let configFile = new_args[2]
+
+console.warn(new_args)
+
+// Registering ts-node before loading protractor - https://github.com/TypeStrong/ts-node
+require('ts-node/register')
+let fs = require('fs')
+
+// Checking if first protractor parameter is config file. If not - trying to find default config files 
+if (!configFile || (!configFile.endsWith('.ts') || !configFile.endsWith('.js')) ) {
+    if (fs.existsSync('./protractor.conf.ts')) {
+        process.argv[2] = './protractor.conf.ts';
+    } else if (fs.existsSync('./protractor.conf.js')) {
+        process.argv[2] = './protractor.conf.js';
+    }
+
+}
+
+require('protractor/built/cli.js');
