@@ -7,13 +7,14 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Debug protractor.conf.js",
+            "name": "TRYING WINDOWS SUBSYSTEM LINUX RUNS",
             "preLaunchTask": "tsc",
             "program": "${workspaceRoot}/node_modules/protractor/bin/protractor",
             "args": [
-                "${workspaceRoot}/experiments/pagefragments/protractor.conf.js"
+                "./experiments/pagefragments/protractor.conf.js"
             ],
-            "outFiles": []
+            "outputCapture": "std",
+            "useWSL": true
         }
     ]
 }

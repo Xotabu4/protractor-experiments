@@ -2,3 +2,5 @@ node_modules/
 .idea/
 *.js
 *.js.map
+
+!experiments/run_without_compile/
