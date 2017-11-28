@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Some playing with protractor possibilities",
   "scripts": {
-    "postinstall": "webdriver-manager update",
+    "postinstall": "webdriver-manager update --gecko false --standalone false",
     "protract": "protractor experiments/async_await/protractor.conf.js",
     "tsc": "tsc",
     "tscw": "tsc -w"
@@ -27,8 +27,9 @@
     "eslint": "^3.19.0",
     "eslint-config-google": "^0.7.1",
     "eslint-plugin-protractor": "^1.34.2",
-    "jasmine-protractor-matchers": "2.0.0",
+    "jasmine-protractor-matchers": "*",
     "protractor": "^5.1.1",
+    "selenium-webdriver": "3.5.0",
     "protractor-element-extend": "^2.0.1",
     "systemjs": "0.19.39",
     "ts-node": "^1.6.0",
