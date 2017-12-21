@@ -14,12 +14,14 @@ describe('Multibrowser PageObjects', function () {
     let user: OwnBrowser
     let guest: OwnBrowser
 
-    beforeEach(() => admin = browser as OwnBrowser)
+    beforeEach(() => {
+        admin = browser as OwnBrowser
+    })
 
     it('creating different pageobject instances depending on browser', function () {
         let adminPage = admin.getPage(HomePage)
         let userPage = user.getPage(HomePage)
-        let guestPage = guest.getPage(HomePage, 'guest')
+        let guestPage = guest.getPage(HomePage)
 
 
         //Some specific actions

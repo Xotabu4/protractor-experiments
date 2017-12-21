@@ -1,10 +1,10 @@
 import { Config } from 'protractor'
 
-let conf: Config = {
+export let config: Config = {
     directConnect: true,
     baseUrl: 'http://www.protractortest.org/testapp/ng1/#/form',
     specs: ['./experiment.ts'],
     SELENIUM_PROMISE_MANAGER: false
 }
 
-exports.config = conf
+//exports.config = conf
