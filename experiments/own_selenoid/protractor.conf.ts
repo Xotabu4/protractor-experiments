@@ -3,7 +3,7 @@ import { Config, ExpectedConditions, $ } from 'protractor'
 
 let conf: Config = {
   //directConnect: true,
-  seleniumAddress: 'URLHERE:4444/wd/hub',
+  seleniumAddress: process.env.SELENOID_URL || 'YOU MUST SET SELENOID_URL ENV VARIABLE like: http://your-server-here:4444/wd/hub',
   baseUrl: 'http://www.protractortest.org/testapp/ng1/#/form',
   specs: ['./experiment.js'],
   SELENIUM_PROMISE_MANAGER: false,
