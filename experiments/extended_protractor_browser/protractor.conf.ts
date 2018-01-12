@@ -2,7 +2,7 @@ import { Config, ExpectedConditions, $, browser } from 'protractor'
 import { myBrowser as mybrowsr } from './myBrowser';
 
 let conf: Config = {
-  seleniumAddress: 'http://ip-5236.sunline.net.ua:4444/wd/hub',
+  directConnect: true,
   baseUrl: 'http://www.protractortest.org/testapp/ng1/#/form',
   specs: ['./experiment.js'],
   SELENIUM_PROMISE_MANAGER: false,
