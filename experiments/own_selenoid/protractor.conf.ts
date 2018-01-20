@@ -24,7 +24,7 @@ while (index < test_files_number) {
 let conf: Config = {
   //directConnect: true,
   seleniumAddress: process.env.SELENOID_URL || 'YOU MUST SET SELENOID_URL ENV VARIABLE like: http://your-server-here:4444/wd/hub',
-  baseUrl: 'http://www.protractortest.org/testapp/ng1/#/form',
+  baseUrl: 'https://www.angularjs.org/',
   specs: ['./tests/*.js'],
   SELENIUM_PROMISE_MANAGER: false,
   multiCapabilities: [
