@@ -1,0 +1,23 @@
+import {browser, $} from 'protractor'
+export async function TEST() {
+    await browser.get('')
+    await browser.sleep(global['SLEEP_TIMEOUT'])
+    await $('body').getText()
+    console.log('got some text!')
+    await browser.sleep(global['SLEEP_TIMEOUT'])
+    await $('body').getText()
+    console.log('got some text!')
+    await browser.sleep(global['SLEEP_TIMEOUT'])
+    await $('body').getText()
+    console.log('got some text!')
+    await browser.sleep(global['SLEEP_TIMEOUT'])
+    await $('body').getText()
+    console.log('got some text!')
+    await browser.sleep(global['SLEEP_TIMEOUT'])
+    await $('body').getText()
+    console.log('got some text!')
+    await browser.sleep(global['SLEEP_TIMEOUT'])
+    await $('body').getText()
+    console.log('got some text!')
+    await browser.sleep(global['SLEEP_TIMEOUT'])
+}
