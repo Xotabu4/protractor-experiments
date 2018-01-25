@@ -19,7 +19,7 @@ let conf: Config = {
     },
 
     onComplete: async function () {
-        await browser.close()
+        await browser.quit()
     }
 
     

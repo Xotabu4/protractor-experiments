@@ -5,5 +5,6 @@ describe('async/await', ()=> {
         await browser.get('')
         await browser.sleep(5000)
         await $('body').getText()
+        await $('body').click()
     })
 })
