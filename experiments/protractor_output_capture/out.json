@@ -1,0 +1,22 @@
+[
+  {
+    "description": "async/await testing rejected promises",
+    "assertions": [
+      {
+        "passed": true
+      }
+    ],
+    "duration": 1205
+  },
+  {
+    "description": "async/await testing rejected promises failed",
+    "assertions": [
+      {
+        "passed": false,
+        "errorMsg": "Failed: No element found using locator: By(css selector, non-exist)",
+        "stackTrace": "NoSuchElementError: No element found using locator: By(css selector, non-exist)\n    at elementArrayFinder.getWebElements.then (/usr/local/lib/node_modules/protractor/built/element.js:814:27)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:160:7)Error\n    at ElementArrayFinder.applyAction_ (/usr/local/lib/node_modules/protractor/built/element.js:459:27)\n    at ElementArrayFinder.(anonymous function).args [as getText] (/usr/local/lib/node_modules/protractor/built/element.js:91:29)\n    at ElementFinder.(anonymous function).args [as getText] (/usr/local/lib/node_modules/protractor/built/element.js:831:22)\n    at UserContext.<anonymous> (/Users/olekh/github/Protractor-Experiments/experiments/protractor_output_capture/experiment.ts:10:30)\n    at Generator.next (<anonymous>)\n    at fulfilled (/Users/olekh/github/Protractor-Experiments/experiments/protractor_output_capture/experiment.js:4:58)\n    at <anonymous>\n    at process._tickCallback (internal/process/next_tick.js:160:7)\nFrom asynchronous test: \nError\n    at Suite.<anonymous> (/Users/olekh/github/Protractor-Experiments/experiments/protractor_output_capture/experiment.ts:8:5)\n    at addSpecsToSuite (/usr/local/lib/node_modules/protractor/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:1152:25)\n    at Env.describe (/usr/local/lib/node_modules/protractor/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:1117:7)\n    at describe (/usr/local/lib/node_modules/protractor/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:4555:18)\n    at Object.<anonymous> (/Users/olekh/github/Protractor-Experiments/experiments/protractor_output_capture/experiment.ts:2:1)\n    at Module._compile (module.js:660:30)\n    at Object.Module._extensions..js (module.js:671:10)\n    at Module.load (module.js:573:32)\n    at tryModuleLoad (module.js:513:12)"
+      }
+    ],
+    "duration": 304
+  }
+]
