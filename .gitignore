@@ -3,4 +3,5 @@ node_modules/
 *.js
 *.js.map
 
+!*.conf.js
 !experiments/run_without_compile/
